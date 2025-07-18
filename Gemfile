@@ -41,3 +41,5 @@ group :development, :test do
 end
 
 
+
+gem "active_storage_validations", "~> 3.0"

@@ -1,4 +1,4 @@
-class Api::v2::VideosController < ApplicationController
+class Api::V2::VideosController < ApplicationController
   include Rails.application.routes.url_helpers
 
   def index

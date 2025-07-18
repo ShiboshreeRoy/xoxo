@@ -2,15 +2,10 @@ class Api::V2::VideosController < ApplicationController
   include Rails.application.routes.url_helpers
 
   def index
-  videos = Video.all.with_attached_file
-
-  if params[:query].present?
-    keyword = "%#{params[:query]}%"
-    videos = videos.where("title ILIKE ? OR description ILIKE ?", keyword, keyword)
+    videos = Video.ransack(params[:q]).result(distinct: true).with_attached_file
+    render json: videos.map { |video| format_video(video) }
   end
 
-  render json: videos.map { |video| format_video(video) }
- end
 
 
   def show

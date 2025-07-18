@@ -43,3 +43,5 @@ end
 
 
 gem "active_storage_validations", "~> 3.0"
+
+gem "ransack", "~> 4.3"
